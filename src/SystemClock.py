@@ -19,7 +19,7 @@ class SystemClock():
     @staticmethod
     def getUTCTime():
         '''
-        Returns the current UTC Timestamp as a floating point number
+        Returns the current UTC Timestamp as an integer number
         '''
         return int(time.time())
         
