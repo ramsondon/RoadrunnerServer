@@ -9,10 +9,7 @@ class Config():
     Class Config
     '''
     
-    IP = 'localhost'
+    # IP to run the Server
+    HOST = 'localhost'
+    # PORT to listen
     PORT = 10500
-    
-    def __init__(self):
-        '''
-        Constructor
-        '''

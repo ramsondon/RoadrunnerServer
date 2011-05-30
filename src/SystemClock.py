@@ -21,7 +21,7 @@ class SystemClock():
         '''
         Returns the current UTC Timestamp as a floating point number
         '''
-        return time.time()
+        return int(time.time())
         
         
 
