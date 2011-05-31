@@ -12,7 +12,7 @@ Dependencies
 Using the Service
 -----------------
 
-	1. Create an UDP Request to `roadrunner.server:10500` and send a package with command `gettime`
+	1. Create an UDP Request to `roadrunner.server:10500` or create a TCP Request to `roadrunner.server:10501
 	2. Wait for UDP Response and receive a package with size 1024
 	3. The Server Response will be a UTC Timestamp
 
