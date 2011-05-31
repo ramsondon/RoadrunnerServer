@@ -2,7 +2,7 @@ RoadrunnerServer Python Project
 ===============================
 
 This Project is the Server Component of the Roadrunner Project.
-Currently it only contains a UDP Timeservice.
+Currently it only contains a UDP and a TCP Timeservice.
 
 Dependencies
 ------------
