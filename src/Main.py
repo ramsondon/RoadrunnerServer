@@ -4,13 +4,24 @@ Created on May 30, 2011
 @author: matthias
 '''
 
-from TimeServer import TimeServer
-from Config import Config
+
+from UDPTimeServerRequestHandler import UDPTimeServerRequestHandler
+from TCPTimeServerRequestHandler import TCPTimeServerRequestHandler
+
+from Interpreter import Interpreter
 import SocketServer
 
 if __name__ == '__main__':
     pass
-    print("Main Application Server Started on %s at port %s" % (Config.HOST, Config.PORT))
+    
+    interpreter = Interpreter()
+    print("Main %s Application Server Started on %s at port %s" % (
+        interpreter.getProtocol(), interpreter.getHost(), interpreter.getPort()))
     
     # Start Server Process   
-    s = SocketServer.UDPServer((Config.HOST, Config.PORT),TimeServer).serve_forever()
+    if interpreter.isUdp() == True:
+        s = SocketServer.UDPServer((interpreter.getHost(), 
+            interpreter.getPort()),UDPTimeServerRequestHandler).serve_forever()
+    else :
+        s = SocketServer.TCPServer((interpreter.getHost(), 
+            interpreter.getPort()),TCPTimeServerRequestHandler).serve_forever()

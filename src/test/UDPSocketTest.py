@@ -5,20 +5,18 @@ Created on May 30, 2011
 '''
 
 import socket
-from Config import Config
+from Interpreter import Interpreter
 
 if __name__ == '__main__':
     pass
- 
-    # send UDP Socket with command `gettime` to Server to receive the current
-    # UTC Timestamp
-    cmd = "gettime"
+    
+    interpreter = Interpreter()
+   
     
     # SOCK_DGRAM is the socket type to use for UDP sockets
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     
-    sock.sendto(cmd, (Config.HOST, Config.PORT))
+    sock.sendto("dummy",0,(interpreter.getHost(),interpreter.getPort()))
     received = sock.recv(1024)
     
-    print("Sent:     %s" % cmd)
     print("Received: %s" % received)
