@@ -13,10 +13,9 @@ class HttpTimeServerRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     '''
     def do_GET(self):
         try:
-            self.send_response(200)
+            self.send_response(200, str(SystemClock.getUTCTime()))
             self.send_header('Content-type',    'text/html')
             self.end_headers()
-            self.wfile.write(str(SystemClock.getUTCTime()))
         except IOError:
             self.send_error(404,'File Not Found: %s' % self.path)
     
