@@ -7,9 +7,9 @@ Created on May 30, 2011
 from SystemClock import SystemClock
 import BaseHTTPServer
 
-class HttpTimeServerRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+class HTTPTimeServerRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     '''
-    Class Server
+    Class HTTPTimeServerRequestHandler
     '''
     def do_GET(self):
         self.send_response(200)

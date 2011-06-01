@@ -26,7 +26,7 @@ class Interpreter():
             print("Call with: --ip <ip> --port <port> --protocol <protocol>")
             print("<ip>: host ip address")
             print("<port>: host port number")
-            print("<protocol>: tcp, udp")
+            print("<protocol>: tcp, udp, http")
             sys.exit()
         
         self.host = "".join(sys.argv[2])
@@ -71,4 +71,12 @@ class Interpreter():
             return True
         else:
             return False
-        
+    
+    def isHttp(self):
+        '''
+        Determines if the configured Protocol is HTTP
+        '''
+        if self.protocol == "http":
+            return True
+        else:
+            return False

@@ -7,10 +7,9 @@ Created on May 30, 2011
 
 from UDPTimeServerRequestHandler import UDPTimeServerRequestHandler
 from TCPTimeServerRequestHandler import TCPTimeServerRequestHandler
-
+from HTTPTimeServerRequestHandler import HTTPTimeServerRequestHandler
 from Interpreter import Interpreter
 import SocketServer
-from HttpTimeServerRequestHandler import HttpTimeServerRequestHandler
 
 if __name__ == '__main__':
     pass
@@ -21,10 +20,11 @@ if __name__ == '__main__':
     
     # Start Server Process   
     if interpreter.isUdp() == True:
-        s = SocketServer.UDPServer((interpreter.getHost(), 
+        SocketServer.UDPServer((interpreter.getHost(), 
             interpreter.getPort()),UDPTimeServerRequestHandler).serve_forever()
-    else :
-        s = SocketServer.TCPServer((interpreter.getHost(), 
-            interpreter.getPort()),HttpTimeServerRequestHandler).serve_forever()
-
-    
+    elif interpreter.isHttp() == True:
+        SocketServer.TCPServer((interpreter.getHost(), 
+            interpreter.getPort()),HTTPTimeServerRequestHandler).serve_forever()
+    elif interpreter.isTcp() == True:
+        SocketServer.TCPServer((interpreter.getHost(), 
+            interpreter.getPort()),TCPTimeServerRequestHandler).serve_forever()
