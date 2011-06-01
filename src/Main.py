@@ -10,6 +10,7 @@ from TCPTimeServerRequestHandler import TCPTimeServerRequestHandler
 
 from Interpreter import Interpreter
 import SocketServer
+from HttpTimeServerRequestHandler import HttpTimeServerRequestHandler
 
 if __name__ == '__main__':
     pass
@@ -24,4 +25,6 @@ if __name__ == '__main__':
             interpreter.getPort()),UDPTimeServerRequestHandler).serve_forever()
     else :
         s = SocketServer.TCPServer((interpreter.getHost(), 
-            interpreter.getPort()),TCPTimeServerRequestHandler).serve_forever()
+            interpreter.getPort()),HttpTimeServerRequestHandler).serve_forever()
+
+    
